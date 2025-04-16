@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Управление пользователями</h1>
+    
+    <div class="forms-container">
+      <div class="form-section">
+        <h2>Реактивная форма</h2>
+        <app-reactive-form (formSubmit)="addUserReactive($event)"></app-reactive-form>
+      </div>
+      
+      <div class="form-section">
+        <h2>Template-driven форма</h2>
+        <app-template-form (formSubmit)="addUserTemplate($event)"></app-template-form>
+      </div>
+    </div>
+  
+    <div class="user-list">
+      <h2>Список пользователей</h2>
+      <div *ngIf="users.length === 0" class="empty-message">Пользователи еще не добавлены</div>
+      <div *ngFor="let user of users" class="user-card">
+        <p><strong>Имя:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Возраст:</strong> {{ user.age }}</p>
+      </div>
+    </div>
+  </div>
